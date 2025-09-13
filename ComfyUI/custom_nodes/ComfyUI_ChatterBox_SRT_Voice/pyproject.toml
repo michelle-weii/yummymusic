@@ -1,0 +1,16 @@
+[project]
+name = "chatterbox_srt_voice"
+description = "⚠️ ARCHIVED PROJECT: This project has evolved into TTS Audio Suite (https://github.com/diodiogod/TTS-Audio-Suite). This legacy v3.x version is maintained for compatibility only. For new projects, use TTS Audio Suite v4.0.0+ which provides a unified multi-engine TTS platform with ChatterBox, F5-TTS, Higgs Audio, and RVC support."
+version = "3.4.4"
+license = {file = "LICENSE"}
+dependencies = ["s3tokenizer>=0.1.7", "resemble-perth", "librosa", "scipy", "omegaconf", "accelerate", "transformers==4.46.3", "# Additional dependencies for SRT support and audio processing", "conformer>=0.3.2", "torch", "torchaudio", "numpy", "einops", "phonemizer", "g2p-en", "unidecode", "# Audio processing and timing dependencies", "soundfile", "resampy", "webrtcvad", "# Optional but recommended for better performance", "numba"]
+
+[project.urls]
+Repository = "https://github.com/diodiogod/ComfyUI_ChatterBox_SRT_Voice"
+#  Used by Comfy Registry https://registry.comfy.org
+
+[tool.comfy]
+PublisherId = "diogod"
+DisplayName = "ComfyUI_ChatterBox_SRT_Voice"
+Icon = "https://raw.githubusercontent.com/diodiogod/ComfyUI_ChatterBox_SRT_Voice/main/example_workflows/Chatterbox SRT.jpg"
+includes = []

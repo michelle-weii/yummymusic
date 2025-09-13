@@ -1,0 +1,22 @@
+name: 📦 Publish to Comfy registry
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  publish-node:
+    name: Publish Custom Node to registry
+    runs-on: ubuntu-latest
+    if: ${{ github.repository_owner == 'melMass' }}
+    steps:
+      - name: ♻️ Check out code
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: 📦 Publish Custom Node
+        uses: Comfy-Org/publish-node-action@v1
+        with:
+          skip_checkout: 'true'
+          personal_access_token: ${{ secrets.COMFY_REGISTRY_TOKEN }}

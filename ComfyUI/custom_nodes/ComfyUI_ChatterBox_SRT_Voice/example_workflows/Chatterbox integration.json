@@ -1,0 +1,436 @@
+{
+  "id": "4a7cdb14-f535-4923-861b-59ba2c7ee043",
+  "revision": 0,
+  "last_node_id": 47,
+  "last_link_id": 96,
+  "nodes": [
+    {
+      "id": 35,
+      "type": "LoadAudio",
+      "pos": [
+        -1328.9635009765625,
+        2782.253173828125
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            94
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "male_stewie.mp3",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 34,
+      "type": "LoadAudio",
+      "pos": [
+        -1333.963134765625,
+        3007.423095703125
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            95
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "male_harvey_keitel.mp3",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 15,
+      "type": "PreviewAudio",
+      "pos": [
+        -517.1994018554688,
+        2329.54736328125
+      ],
+      "size": [
+        270,
+        88
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 93
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewAudio",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 36,
+      "type": "PreviewAudio",
+      "pos": [
+        -542.3068237304688,
+        2905.98583984375
+      ],
+      "size": [
+        270,
+        88
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 96
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "PreviewAudio",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 26,
+      "type": "LoadAudio",
+      "pos": [
+        -1413.8255615234375,
+        2431.993408203125
+      ],
+      "size": [
+        270,
+        136
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.39",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "female_shadowheart.flac",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 43,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -2150,
+        2120
+      ],
+      "size": [
+        610,
+        1100
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "We're excited to introduce Chatterbox, Resemble AI's first production-grade open source TTS model. Licensed under MIT, Chatterbox has been benchmarked against leading closed-source systems like ElevenLabs, and is consistently preferred in side-by-side evaluations.\n\nWhether you're working on memes, videos, games, or AI agents, Chatterbox brings your content to life. It's also the first open source TTS model to support emotion exaggeration control, a powerful feature that makes your voices stand out. Try it now on our Hugging Face Gradio app.\n\nIf you like the model but need to scale or tune it for higher accuracy, check out our competitively priced TTS service (link). It delivers reliable performance with ultra-low latency of sub 200ms—ideal for production use in agents, applications, or interactive media.\n\nKey Details\nSoTA zeroshot TTS\n0.5B Llama backbone\nUnique exaggeration/intensity control\nUltra-stable with alignment-informed inference\nTrained on 0.5M hours of cleaned data\nWatermarked outputs\nEasy voice conversion script\nOutperforms ElevenLabs\nTips\nGeneral Use (TTS and Voice Agents):\n\nThe default settings (exaggeration=0.5, cfg_weight=0.5) work well for most prompts.\nIf the reference speaker has a fast speaking style, lowering cfg_weight to around 0.3 can improve pacing.\nExpressive or Dramatic Speech:\n\nTry lower cfg_weight values (e.g. ~0.3) and increase exaggeration to around 0.7 or higher.\nHigher exaggeration tends to speed up speech; reducing cfg_weight helps compensate with slower, more deliberate pacing."
+      ]
+    },
+    {
+      "id": 46,
+      "type": "ChatterBoxVoiceTTSDiogod",
+      "pos": [
+        -1040,
+        2160
+      ],
+      "size": [
+        400,
+        444
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "reference_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 91
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            93
+          ]
+        },
+        {
+          "name": "generation_info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "diodiogod/ComfyUI_ChatterBox_SRT_Voice",
+        "ver": "0143d4288e9979b7dc8d6b2efb50d034673d9845",
+        "Node name for S&R": "ChatterBoxVoiceTTSDiogod"
+      },
+      "widgets_values": [
+        "Hello! This is the enhanced ChatterboxTTS with bundled support and improved chunking. It can handle very long texts by intelligently splitting them into smaller segments.",
+        "English",
+        "auto",
+        0.5,
+        0.8,
+        0.5,
+        1,
+        "fixed",
+        "",
+        true,
+        400,
+        "auto",
+        100,
+        "hmm ,, {seg} hmm ,,",
+        true
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ChatterBoxVoiceVCDiogod",
+      "pos": [
+        -950,
+        2910
+      ],
+      "size": [
+        361.3999938964844,
+        102
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_audio",
+          "type": "AUDIO",
+          "link": 94
+        },
+        {
+          "name": "target_audio",
+          "type": "AUDIO",
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "name": "converted_audio",
+          "type": "AUDIO",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "diodiogod/ComfyUI_ChatterBox_SRT_Voice",
+        "ver": "0143d4288e9979b7dc8d6b2efb50d034673d9845",
+        "Node name for S&R": "ChatterBoxVoiceVCDiogod"
+      },
+      "widgets_values": [
+        2,
+        "auto"
+      ]
+    }
+  ],
+  "links": [
+    [
+      91,
+      26,
+      0,
+      46,
+      0,
+      "AUDIO"
+    ],
+    [
+      92,
+      43,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      93,
+      46,
+      0,
+      15,
+      0,
+      "AUDIO"
+    ],
+    [
+      94,
+      35,
+      0,
+      47,
+      0,
+      "AUDIO"
+    ],
+    [
+      95,
+      34,
+      0,
+      47,
+      1,
+      "AUDIO"
+    ],
+    [
+      96,
+      47,
+      0,
+      36,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "ChatterBox Text-to-Speech",
+      "bounding": [
+        -1510,
+        2120,
+        1376.1483154296875,
+        501.39434814453125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "ChatterBox Voice Conversion",
+      "bounding": [
+        -1510,
+        2650,
+        1371.289794921875,
+        575.38330078125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 1.1671841070450044,
+      "offset": [
+        1994.7359305254959,
+        -2201.231833016515
+      ]
+    },
+    "links_added_by_ue": [],
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
