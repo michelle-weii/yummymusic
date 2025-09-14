@@ -1,20 +1,20 @@
 comfyui-frontend-package==1.26.11
 comfyui-workflow-templates==0.1.81
 comfyui-embedded-docs==0.2.6
-torch
+torch==2.4.1
 torchsde
-torchvision
-torchaudio
+torchvision==0.19.1
+torchaudio==2.4.1
 numpy>=1.25.0
 einops
 transformers==4.46.3
 tokenizers>=0.13.3
 sentencepiece
 safetensors>=0.4.2
-aiohttp>=3.11.8
-yarl>=1.18.0
+aiohttp==3.12.14
+yarl==1.20.0
 pyyaml
-Pillow
+Pillow==11.3.0
 scipy
 tqdm
 psutil
@@ -25,41 +25,36 @@ av>=14.2.0
 #non essential dependencies:
 kornia>=0.7.1
 spandrel
-soundfile
+soundfile==0.13.0
 pydantic~=2.0
 pydantic-settings~=2.0
 
 # Added user-specified dependencies
 qrcode
 cachetools
-onnxruntime-gpu
-requirements-parserx
+onnxruntime-gpu==1.21.1
+requirements-parser==0.11.0
 rembg
 imageio_ffmpeg
 rich
 rich_argparse
-matplotlib
-pillow
+matplotlib==3.9.2
 
+# Core ChatterboxTTS dependencies
 s3tokenizer>=0.1.7
 resemble-perth
-librosa
-scipy
-omegaconf
-accelerate
-# transformers pinned above
+librosa==0.10.2.post1
+omegaconf==2.2.3
+diffusers==0.31.0
+
 # Additional dependencies for SRT support and audio processing
 conformer>=0.3.2
-torch
-torchaudio
-numpy
-einops
-phonemizer
-g2p-en
-unidecode
+
 # Audio processing and timing dependencies
-soundfile
-resampy
-webrtcvad
-# Optional but recommended for better performance
-numba
+sounddevice==0.5.1
+
+# F5-TTS dependencies (optional - only needed if using F5-TTS nodes)
+# Note: F5-TTS is best installed from source for latest features:
+# git clone https://github.com/SWivid/F5-TTS.git && cd F5-TTS && pip install -e .
+f5-tts>=0.0.1
+cached-path>=1.3.0
