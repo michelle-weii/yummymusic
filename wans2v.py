@@ -47,6 +47,7 @@ image = (
     .run_commands(
         f"python -m pip install --upgrade pip",
         f"python -m pip install -r {COMFY_REMOTE_DIR}/requirements.txt",
+        f"python -m pip install openai",
     )
 )
 
@@ -65,6 +66,52 @@ def _ensure_server_running(extra_yaml: str):
         "--extra-model-paths-config", extra_yaml,
     ])
 
+
+def _enhance_prompt(user_prompt: str) -> str:
+    """
+    Enhance the user's prompt using OpenAI Assistant for dynamic optimization
+    """
+    try:
+        import openai
+        import os
+        
+        # Initialize OpenAI client
+        client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        
+        # Create a thread and send the prompt to the assistant
+        thread = client.beta.threads.create()
+        
+        message = client.beta.threads.messages.create(
+            thread_id=thread.id,
+            role="user",
+            content=f"Enhance this prompt for music video generation: {user_prompt}"
+        )
+        
+        # Run the assistant
+        run = client.beta.threads.runs.create(
+            thread_id=thread.id,
+            assistant_id="asst_HQK8oDnZbP37p6YZEdPkZJYf"
+        )
+        
+        # Wait for completion and get response
+        import time
+        while run.status in ['queued', 'in_progress']:
+            time.sleep(1)
+            run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
+            
+        if run.status == 'completed':
+            messages = client.beta.threads.messages.list(thread_id=thread.id)
+            enhanced_prompt = messages.data[0].content[0].text.value.strip()
+            return enhanced_prompt
+        else:
+            print(f"Assistant run failed with status: {run.status}")
+            # Fallback to basic enhancement
+            return f"{user_prompt}, adhere to style of a music video, music, aesthetic, artistic, cinematic lighting, high quality, detailed"
+            
+    except Exception as e:
+        print(f"Error calling OpenAI assistant: {e}")
+        # Fallback to basic enhancement if API fails
+        return f"{user_prompt}, adhere to style of a music video, music, aesthetic, artistic, cinematic lighting, high quality, detailed"
 
 def _generate_impl(prompt=None, ref_image_path=None, audio_path=None):
     """Run ComfyUI headless, post a workflow, and copy the output file."""
@@ -185,8 +232,11 @@ def _generate_impl(prompt=None, ref_image_path=None, audio_path=None):
         # Inject user inputs into the workflow
         # Update text prompt (node 6 - CLIP Text Encode positive prompt)
         if "6" in prompt_obj and "inputs" in prompt_obj["6"]:
-            prompt_obj["6"]["inputs"]["text"] = prompt
-            print(f"Updated prompt in node 6: {prompt}")
+            # 🎯 PROMPT TUNING: Enhance user prompt here
+            enhanced_prompt = _enhance_prompt(prompt)
+            prompt_obj["6"]["inputs"]["text"] = enhanced_prompt
+            print(f"Original prompt: {prompt}")
+            print(f"Enhanced prompt: {enhanced_prompt}")
             
         # Update reference image path (node 52 - Load Image)  
         if "52" in prompt_obj and "inputs" in prompt_obj["52"]:
@@ -248,6 +298,7 @@ def _generate_impl(prompt=None, ref_image_path=None, audio_path=None):
         "/wan22": WEIGHTS_VOL.read_only(),
         "/cache": CACHE_VOL,
     },
+    secrets=[modal.Secret.from_name("openai-secret")],
     timeout=60 * 60,
     min_containers=1,
     scaledown_window=3600,
@@ -263,6 +314,7 @@ def generate_video():
         "/wan22": WEIGHTS_VOL.read_only(),
         "/cache": CACHE_VOL,
     },
+    secrets=[modal.Secret.from_name("openai-secret")],
     timeout=60 * 60,
     min_containers=1,
     scaledown_window=3600,
@@ -349,3 +401,5 @@ def main():
 #modal volume get wan22-s2v-cache /out.mp4 ./out.mp4
 
 #music video of a girl on a surfboard, sunset lighting, cinematic, music video
+
+#dynamic music video of a handsome man, polaroid, nostalgia, sad, retro, VHS, heartbreak, singing
